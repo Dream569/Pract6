@@ -1,0 +1,8 @@
+Будильник:
+Интерфейс
+<StackLayout Padding="10">
+<Label Text="Установите время будильника:" />
+<TimePicker x:Name="AlarmTimePicker" />
+<Button Text="Установить будильник" Clicked="OnSetAlarmClicked" />
+<ListView x:Name="AlarmListView" />
+</StackLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pract6.Timer"
+             Title="Timer">
+    <StackLayout Padding="20" VerticalOptions="Center">
+        <Label Text="Установите время таймера:" FontSize="Large" HorizontalOptions="Center" />
+        <TimePicker x:Name="TimerTimePicker" />
+        <Button Text="Запустить таймер" Clicked="Start" />
+        <Button Text="Остановить таймер" Clicked="Stop" />
+        <Button Text="Сбросить таймер" Clicked="Reset" />
+        <Label x:Name="TimerLabel" FontSize="48" HorizontalOptions="Center" />
+    </StackLayout>
+</ContentPage>

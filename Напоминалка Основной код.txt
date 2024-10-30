@@ -1,0 +1,51 @@
+Основной кодд
+using System.Timers;
+using System.Collections.Generic;
+
+public partial class MainPage : ContentPage
+{
+private Timer _timer;
+private List<(DateTime Time, string Message)> _reminders = new List<(DateTime, string)>();
+private bool _running;
+
+public MainPage()
+{
+InitializeComponent();
+_timer = new Timer(1000);
+_timer.Elapsed += OnTimedEvent;
+}
+
+private void OnSetReminderClicked(object sender, EventArgs e)
+{
+var reminderTime = DateTime.Today.Add(ReminderTimePicker.Time);
+var reminderMessage = ReminderMessageEntry.Text;
+
+_reminders.Add((reminderTime, reminderMessage));
+RemindersListView.ItemsSource = null; // Для обновления списка
+RemindersListView.ItemsSource = _reminders;
+
+if (!_running)
+{
+_running = true;
+_timer.Start();
+}
+}
+
+private void OnTimedEvent(object sender, ElapsedEventArgs e)
+{
+var currentTime = DateTime.Now;
+MainThread.BeginInvokeOnMainThread(() =>
+{
+foreach (var reminder in _reminders.ToArray())
+{
+if (currentTime.ToString("HH:mm") == reminder.Time.ToString("HH:mm"))
+{
+DisplayAlert("Напоминание", reminder.Message, "OK");
+_reminders.Remove(reminder); // Удаляем после показа
+RemindersListView.ItemsSource = null; // Для обновления списка
+RemindersListView.ItemsSource = _reminders;
+}
+}
+});
+}
+}

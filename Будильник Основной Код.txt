@@ -1,0 +1,7 @@
+Основной кодд
+private void OnSetAlarmClicked(object sender, EventArgs e)
+{
+var alarmTime = AlarmTimePicker.Time;
+// Добавьте код для сохранения будильника
+// и логики для уведомлений.
+}

@@ -1,0 +1,9 @@
+Таймер
+<StackLayout Padding="20" VerticalOptions="Center">
+<Label Text="Установите время таймера:" FontSize="Large" HorizontalOptions="Center" />
+<TimePicker x:Name="TimerTimePicker" />
+<Button Text="Запустить таймер" Clicked="OnStartTimerClicked" />
+<Button Text="Остановить таймер" Clicked="OnStopTimerClicked" />
+<Button Text="Сбросить таймер" Clicked="OnResetTimerClicked" />
+<Label x:Name="TimerLabel" FontSize="48" HorizontalOptions="Center" />
+</StackLayout>

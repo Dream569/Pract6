@@ -1,0 +1,41 @@
+Основной код
+using System.Timers;
+
+public partial class MainPage : ContentPage
+{
+private Timer _timer;
+private TimeSpan _timeSpan;
+
+public MainPage()
+{
+InitializeComponent();
+_timer = new Timer(1000);
+_timer.Elapsed += OnTimedEvent;
+}
+
+private void OnStartClicked(object sender, EventArgs e)
+{
+_timer.Start();
+}
+
+private void OnStopClicked(object sender, EventArgs e)
+{
+_timer.Stop();
+}
+
+private void OnResetClicked(object sender, EventArgs e)
+{
+_timer.Stop();
+_timeSpan = TimeSpan.Zero;
+TimerLabel.Text = "00:00:00";
+}
+
+private void OnTimedEvent(object sender, ElapsedEventArgs e)
+{
+_timeSpan = _timeSpan.Add(TimeSpan.FromSeconds(1));
+MainThread.BeginInvokeOnMainThread(() =>
+{
+TimerLabel.Text = _timeSpan.ToString(@"hh\:mm\:ss");
+});
+}
+}

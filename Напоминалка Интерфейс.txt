@@ -1,0 +1,8 @@
+Напоминалка
+<StackLayout Padding="20">
+<Label Text="Установите время напоминания:" FontSize="Large" HorizontalOptions="Center" />
+<TimePicker x:Name="ReminderTimePicker" />
+<Entry x:Name="ReminderMessageEntry" Placeholder="Введите сообщение" />
+<Button Text="Установить напоминание" Clicked="OnSetReminderClicked" />
+<ListView x:Name="RemindersListView" />
+</StackLayout>

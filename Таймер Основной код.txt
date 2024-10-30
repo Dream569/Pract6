@@ -1,0 +1,56 @@
+Основной кодд
+using System;
+using System.Timers;
+using Microsoft.Maui.LifecycleEvents;
+
+public partial class MainPage : ContentPage
+{
+private Timer _timer;
+private TimeSpan _remainingTime;
+
+public MainPage()
+{
+InitializeComponent();
+_timer = new Timer(1000);
+_timer.Elapsed += OnTimedEvent;
+}
+
+private void OnStartTimerClicked(object sender, EventArgs e)
+{
+_remainingTime = TimerTimePicker.Time;
+_timer.Start();
+TimerLabel.Text = _remainingTime.ToString(@"hh\:mm\:ss");
+}
+
+private void OnStopTimerClicked(object sender, EventArgs e)
+{
+_timer.Stop();
+}
+
+private void OnResetTimerClicked(object sender, EventArgs e)
+{
+_timer.Stop();
+TimerLabel.Text = "00:00:00";
+}
+
+private void OnTimedEvent(object sender, ElapsedEventArgs e)
+{
+if (_remainingTime.TotalSeconds > 0)
+{
+_remainingTime = _remainingTime.Add(TimeSpan.FromSeconds(-1));
+MainThread.BeginInvokeOnMainThread(() =>
+{
+TimerLabel.Text = _remainingTime.ToString(@"hh\:mm\:ss");
+});
+}
+else
+{
+_timer.Stop();
+MainThread.BeginInvokeOnMainThread(() =>
+{
+TimerLabel.Text = "Время истекло!";
+// Здесь можно добавить уведомление
+});
+}
+}
+}

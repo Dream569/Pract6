@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pract6.Alarm"
+             Title="Alarm">
+    <StackLayout Padding="10">
+        <Label Text="Установите время будильника:" />
+        <TimePicker x:Name="AlarmTimePicker" />
+        <Button Text="Установить будильник" Clicked="OnSetAlarmClicked" />
+        <ListView x:Name="AlarmListView" />
+        <Switch IsToggled="True" x:Name="swOnOffTime" Toggled="swOnOffTime_Toggled"></Switch>
+        <Label Text="Понедельник"/>
+        <Switch IsToggled="True" x:Name="swMonday" Toggled="swOnOffTime_Toggled"></Switch>
+        <Label Text="Вторник"/>
+        <Switch IsToggled="True" x:Name="swTuesday" Toggled="swOnOffTime_Toggled"></Switch>
+        <Label Text="Среда"/>
+        <Switch IsToggled="True" x:Name="swWednesday" Toggled="swOnOffTime_Toggled"></Switch>
+        <Label Text="Четверг"/>
+        <Switch IsToggled="True" x:Name="swThursday" Toggled="swOnOffTime_Toggled"></Switch>
+        <Label Text="Пятница"/>
+        <Switch IsToggled="True" x:Name="swFriday" Toggled="swOnOffTime_Toggled"></Switch>
+        <Label Text="Суббота"/>
+        <Switch IsToggled="True" x:Name="swSaturday" Toggled="swOnOffTime_Toggled"></Switch>
+        <Label Text="Воскресенье"/>
+        <Switch IsToggled="True" x:Name="Sunday" Toggled="swOnOffTime_Toggled"></Switch>
+    </StackLayout>
+</ContentPage>

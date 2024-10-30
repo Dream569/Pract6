@@ -1,0 +1,8 @@
+Секундомер
+Интерфейс
+<StackLayout Padding="20">
+<Label x:Name="TimerLabel" FontSize="48" HorizontalOptions="Center" />
+<Button Text="Старт" Clicked="OnStartClicked" />
+<Button Text="Стоп" Clicked="OnStopClicked" />
+<Button Text="Сброс" Clicked="OnResetClicked" />
+</StackLayout>
